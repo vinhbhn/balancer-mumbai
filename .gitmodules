@@ -1,0 +1,6 @@
+[submodule "balancer-core-v2"]
+	path = balancer-core-v2
+	url = git@github.com:vinhbhn/balancer-core-v2.git
+[submodule "balancer-frontend"]
+	path = balancer-frontend
+	url = git@github.com:vinhbhn/balancer-frontend.git
