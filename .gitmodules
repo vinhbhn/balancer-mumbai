@@ -1,6 +1,18 @@
-[submodule "balancer-core-v2"]
-	path = balancer-core-v2
-	url = git@github.com:vinhbhn/balancer-core-v2.git
 [submodule "balancer-frontend"]
 	path = balancer-frontend
 	url = git@github.com:vinhbhn/balancer-frontend.git
+[submodule "exchange-proxy"]
+	path = exchange-proxy
+	url = git@github.com:vinhbhn/exchange-proxy.git
+[submodule "balancer-core"]
+	path = balancer-core
+	url = git@github.com:vinhbhn/balancer-core.git
+[submodule "bactions-proxy"]
+	path = bactions-proxy
+	url = git@github.com:vinhbhn/bactions-proxy.git
+[submodule "balancer-subgraph"]
+	path = balancer-subgraph
+	url = git@github.com:vinhbhn/balancer-subgraph.git
+[submodule "balancer-core-v2"]
+	path = balancer-core-v2
+	url = git@github.com:vinhbhn/balancer-core-v2.git
