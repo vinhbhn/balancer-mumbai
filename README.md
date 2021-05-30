@@ -1,16 +1,78 @@
-## Balancer on Mumbai (Polygon testnet)
+# Guide to deploy Balancer on Mumbai
 
-* balancer-core: bFactory
+1. Contracts
 
-* balancer-core-v2: multicall
+- balancer-core have bFactory address
 
-* exchange-proxy: exchangeProxy + weth9
+```
+cd balancer-core
+cp .env_example .env
+yarn
+npx truffle compile --all --network mumbai
+npx truffle migrate --network mumbai
+```
 
-* bActions-proxy: bActions + dsProxyRegistry(dsProxyFactory) 
+- balancer-core-v2 have Multicall address
 
-change in balancer-frontend/src/config/mumbai.json
+```
+cd balancer-core-v2
+cp .env.example .env
+yarn
+npx hardhat --network mumbai compile
+yarn run deploy:mumbai
+```
 
-weth: 0x005F076FCD190A656AC3d53d0DC7021aC85C79b8
+- exchange-proxy have exchangeProxy address and Weth9 address
 
-weth9: 0xd84b3E88ca7c7c14E925539EBd4ce9c27b6916De
-da deploy link exchangeProxy voi weth9
+```
+cd exchange-proxy
+cp .env.example .env
+yarn
+npx truffle compile --all --network mumbai
+npx truffle migrate --network mumbai
+```
+
+- bactions-proxy have bActions address and dsProxyRegistry(dsProxyFactory) address
+
+```
+cd bactions-proxy
+cp .env.example .env
+yarn
+npx truffle compile --all --network mumbai
+npx truffle migrate --network mumbai
+```
+
+Remember to save 5 addresses above.
+
+2. Subgraph
+
+```
+cd balancer-subgraph
+yarn
+```
+
+Fill in `subgraph.mumbai.yaml` with 5 addresses above.
+
+Searching each address on [explorer](https://explorer-mumbai.maticvigil.com) to find block where contract creation, after that fill to startBlock.
+
+Deploy subgraph on mumbai testnet
+
+```
+yarn run deploy:mumbai
+```
+
+3. UI
+
+```
+cd balancer-frontend
+npm install
+```
+
+Create a file .env with
+
+```
+APP_CHAIN_ID=80001
+APP_GAS_PRICE=100000000000
+```
+
+Change in balancer-frontend/src/config/mumbai.json with 5 address above.
