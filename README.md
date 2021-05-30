@@ -1,4 +1,4 @@
-## Balancer on Polygon
+## Balancer on Mumbai (Polygon testnet)
 
 * balancer-core: bFactory
 
